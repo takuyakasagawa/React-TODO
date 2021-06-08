@@ -4,12 +4,9 @@ import "./styles.css";
 export const App = () => {
   const [todoText, setTodoText] = useState("");
 
-  const [inCompleteTodos, setIncompletetodos] = useState([
-    "ああああ",
-    "いいいい"
-  ]);
+  const [inCompleteTodos, setIncompletetodos] = useState([]);
 
-  const [completeTodos, setCompletetodos] = useState(["うううう"]);
+  const [completeTodos, setCompletetodos] = useState([]);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
@@ -39,8 +36,13 @@ export const App = () => {
   };
 
   const onClickBack = (index) => {
-    const 
-  }
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+
+    const newInCompleteTodos = [...inCompleteTodos, completeTodos[index]];
+    setCompletetodos(newCompleteTodos);
+    setIncompletetodos(newInCompleteTodos);
+  };
 
   return (
     <>
